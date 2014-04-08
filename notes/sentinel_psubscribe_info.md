@@ -1,3 +1,15 @@
+###只能使用redis.sentinel来监听master切换消息了
+
+		sentinel=Sentinel([('10.209.10.30',46390)],socket_timeout=0.1)
+		>>> sentinel.discover_master('mymaster1')
+		('10.209.10.30', 6390)
+		>>> sentinel.discover_master('mymaster2')
+		('10.209.10.31', 6390)
+
+
+
+----
+###redis.py对pubsub支持的不够好[(参考文章)](https://github.com/andymccurdy/redis-py/issues/151#issuecomment-1545015)
 当master宕掉之后。通过pub/sub监听到所有的信息,我们可以通过 psubscribe 中的某些信息来监听是否进行了切换。
 
 >[root@nb-b-kvdb-10-32 ~]# /usr/local/redis/bin/redis-cli -h 10.209.10.31 -p 46390
