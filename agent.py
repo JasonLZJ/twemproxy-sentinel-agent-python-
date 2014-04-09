@@ -16,16 +16,16 @@ class agent(object):
             self.config = yaml.load(f)
         return  self.config
 
-    def restart(self,sn):  # sn(sesion_name) is 'cli1','cli2' etc. we can regard him as  primary key in sql. 
-        cmd=self.config[sn]['twem_cmd']
+    def restart(self,conf_sn):  # conf_sn(config file sesion_name) is 'cli1','cli2' etc. we can regard him as  primary key in sql. 
+        cmd=self.config[conf_sn]['twem_cmd']
         rs,rt = commands.getstatusoutput(cmd)  # 'rs' means result, 'rt' mean return
         print rs,rt  #debug info
         return  rt  
 
      def rewrite(self,conf_sn='cli1',sv_alias='mymaster1',new_ip='127.0.0.1',new_port=6379):
         self.config = self.read_config()        # read config
-        self.twem_config_file=self.config[conf_sn]['twem_config']
-        self.twem_config=self.read_config(self.twem_config_file)
+        self.twem_config_file=self.config[conf_sn]['twem_config']  # get the twemproxy's config file path
+        self.twem_config=self.read_config(self.twem_config_file)    # read the twemproxy's config file to 'twem_config'
         for i in range(len(self.twem_config['twem1']['servers'])):
             if ( self.twem_config['twem1']['servers'][i].split(" ")[1] == sv_alias ):
                 print 'old_addr :',self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[0],self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[1]
