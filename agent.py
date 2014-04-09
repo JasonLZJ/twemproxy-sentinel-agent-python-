@@ -7,11 +7,9 @@ from redis.sentinel import Sentinel
 
 class agent(object):
     
-
     def __init__(self):
         pass
     
-
     def read_config(self,config_file='./conf/agent.yml'):
         self.config_file=config_file
         with open(self.config_file,'r') as f:
@@ -25,7 +23,6 @@ class agent(object):
         return  rt  
 
      def rewrite(self,conf_sn='cli1',sv_alias='mymaster1',new_ip='127.0.0.1',new_port=6379):
-
         self.config = self.read_config()        # read config
         self.twem_config_file=self.config[conf_sn]['twem_config']
         self.twem_config=self.read_config(self.twem_config_file)
@@ -39,8 +36,6 @@ class agent(object):
                 print 'changed :',self.twem_config['twem1']['servers'][i]
             else:
                 print "NOT MATCHING"
-    
-
 
     def __del__(self):
         pass
