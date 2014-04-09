@@ -24,12 +24,21 @@ class agent(object):
         print rs,rt  #debug info
         return  rt  
 
-    def rewrite(self,sn='cli1',ip='127.0.0.1',port=26379):
-        config = self.read_config()
-        twem_config_file=config[sn]['twem_config']
-        print twem_config_file
-        twem_config=self.read_config(twem_config_file)
-        print twem_config
+     def rewrite(self,conf_sn='cli1',sv_alias='mymaster1',new_ip='127.0.0.1',new_port=6379):
+
+        self.config = self.read_config()        # read config
+        self.twem_config_file=self.config[conf_sn]['twem_config']
+        self.twem_config=self.read_config(self.twem_config_file)
+        for i in range(len(self.twem_config['twem1']['servers'])):
+            if ( self.twem_config['twem1']['servers'][i].split(" ")[1] == sv_alias ):
+
+                print 'old_addr :',self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[0],self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[1]
+                print 'new_addr :',new_ip,new_port
+                self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[0]=new_ip
+                self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[1]=new_port
+                print 'changed :',self.twem_config['twem1']['servers'][i]
+            else:
+                print "NOT MATCHING"
     
 
 
