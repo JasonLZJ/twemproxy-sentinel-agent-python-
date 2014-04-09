@@ -28,7 +28,6 @@ class agent(object):
         self.twem_config=self.read_config(self.twem_config_file)
         for i in range(len(self.twem_config['twem1']['servers'])):
             if ( self.twem_config['twem1']['servers'][i].split(" ")[1] == sv_alias ):
-
                 print 'old_addr :',self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[0],self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[1]
                 print 'new_addr :',new_ip,new_port
                 self.twem_config['twem1']['servers'][i].split(" ")[0].split(":")[0]=new_ip
