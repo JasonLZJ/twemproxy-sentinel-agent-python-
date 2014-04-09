@@ -42,5 +42,5 @@ class agent(object):
 
 if __name__ == '__main__':
     ag=agent()
-     ag.rewrite('cli2','mymaster1','192.168.13.64',6379)
+    ag.rewrite('cli2','mymaster1','192.168.13.64',6379)
     
