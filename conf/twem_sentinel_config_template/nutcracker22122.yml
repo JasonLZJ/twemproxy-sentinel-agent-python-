@@ -1,0 +1,13 @@
+twem1:
+  auto_eject_hosts: true
+  distribution: ketama
+  hash: fnv1a_64
+  hash_tag: '{}'
+  listen: 0.0.0.0:22122
+  redis: true
+  server_failure_limit: 0
+  server_retry_timeout: 6000000
+  servers:
+  - 192.168.13.64:6379:1 mymaster1
+  - 192.168.13.64:6381:1 mymaster2
+  timeout: 400
