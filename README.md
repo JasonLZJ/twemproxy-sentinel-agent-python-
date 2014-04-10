@@ -5,7 +5,7 @@ agent主要实现监听sentinel消息，当master变更的时候主动更新twem
 ###Redis集群架构简介
 
 
-![Architecture diagram](https://github.com/breakwang/twemproxy-sentinel-agent-python-/blob/master/misc/twemproxy-agent.png)
+![Architecture diagram](http://github.com/breakwang/twemproxy-sentinel-agent-python-/blob/master/misc/twemproxy-agent.png)
 
 [sentinel介绍](http://breakwang.sinaapp.com/?p=198) 
 
