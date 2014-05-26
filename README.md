@@ -1,11 +1,20 @@
 twemproxy-sentinel-agent-python-
 ================================
-agent主要实现监听sentinel消息，当master变更的时候主动更新twempoxy配置，并重启twemproxy。本程序将实现一个agent监听多组sentinel和twemproxy。 
+agent主要实现监听sentinel消息，当master变更的时候主动更新twempoxy配置，并重启twemproxy。本程序实现一个agent监听多组twemproxy(每个twemproxy的后端多组Redis实例需要配置在同一个Sentinel监听)，如下图所示。 
 
-###Redis集群架构简介
+```
 
+    			TwemProxy
+		__________|__________
+		|					|
+	Master1				Master N
+Slave1 	SlaveN		Slave 1    Slave N
+		|                    |
+		——————————|——————————
+			    	  |       
+		  Redis Sentinel
 
-![Architecture diagram](http://i1.tietuku.com/03aa17b479c83176.png)
+```
 
 [sentinel介绍](http://breakwang.sinaapp.com/?p=198) 
 
