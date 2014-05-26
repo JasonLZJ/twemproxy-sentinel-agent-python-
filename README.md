@@ -33,8 +33,7 @@ Slave1 	SlaveN		Slave 1    Slave N
   		  twem_config: /usr/local/nutcracker/conf/nutcracker22121.yml
     	    twem_cmd: /etc/init.d/nutcracker22121 restart
             agent_log: /usr/loca/nutcracker/agent/log/agent1.log
-
-		cli2:
+         	cli2:
    		 sentinel_host: 127.0.0.1
             sentinel_port: 26379
             twem_config: /usr/local/nutcracker/conf/nutcracker22122.yml
