@@ -1,13 +1,16 @@
-cli1:
-    sentinel_host: 127.0.0.1
-    sentinel_port: 26379
-    twem_config: /usr/local/nutcracker/conf/nutcracker22121.yml
-    twem_cmd: /etc/init.d/nutcracker22121 restart
-    agent_log: /usr/loca/nutcracker/agent/log/agent1.log
+global:
+   agent_log: /home/logs/nutcracker/agent.log
+   delay_loop: 2    
 
-cli2:
-    sentinel_host: 127.0.0.1
-    sentinel_port: 26379
-    twem_config: /usr/local/nutcracker/conf/nutcracker22122.yml
-    twem_cmd: /etc/init.d/nutcracker22122 restart
-    agent_log: /usr/loca/nutcracker/agent/log/agent2.log
+agents:
+    cli1:
+       sentinel_host: 10.208.20.241
+       sentinel_port: 26403
+       twem_config: /usr/local/nutcracker/conf/nutcracker16031.yml
+       twem_cmd: /etc/init.d/nutcracker16031 restart
+    cli2:
+       sentinel_host: 10.208.20.242
+       sentinel_port: 26403
+       twem_config: /usr/local/nutcracker/conf/nutcracker16031.yml
+       twem_cmd: /etc/init.d/nutcracker16031 restart
+
